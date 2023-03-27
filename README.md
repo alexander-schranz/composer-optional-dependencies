@@ -17,7 +17,7 @@ if you have:
 ```json
 {
     "require-dev": {
-        "elasticsearch/elasticsearch": "^2.0"
+        "elasticsearch/elasticsearch": "^3.0"
     }
 }
 ```
@@ -27,27 +27,27 @@ A project installing your package will not fail when it has in its composer.json
 ```json
 {
     "require": {
-        "elasticsearch/elasticsearch": "^3.0"
+        "elasticsearch/elasticsearch": "^4.0"
     }
 }
 ```
 
-Another good example about optional dependencies is for example the `doctrine/orm`.
+Another good example about optional dependencies is for example the [`doctrine/orm`](https://github.com/doctrine/orm/).
 When you install the `doctrine/orm` package the installation will not fail when
 you don't have a maybe required `pdo`, `pgsql` or `mysql` extension not installed.
 That is about the nature how doctrine/orm is build as a whole package with different
-drivers in it, and so they can not define the `require` section and only will error in the
-runtime.
+drivers in it, and so they can not define the `require` section as different drivers
+require different things. So it does not make sense in `doctrine/orm` to require all
+used extensions as only one driver is used mostly inside a project.
 
 The alternative here to `optional` dependencies would be to split a package
 into multiple packages via as example
-[Adapter Pattern](https://en.wikipedia.org/wiki/Adapter_pattern) or
-[dependency inversion principle](http://en.wikipedia.org/wiki/Dependency_inversion_principle).
-A good example for this is the `league/flysystem` package. That package
+[Adapter Pattern](https://en.wikipedia.org/wiki/Adapter_pattern).
+A good example for this is the [`league/flysystem`](http://github.com/league/flysystem) package. That package
 provides different adapters which have their own `requirements` and so exactly
-tells you with which already installed packages it is compatible or not. As example
+tells you with which already installed packages it is compatible or not. As an example
 it provides a `league/flysystem-aws-s3-v3` adapter which requires a specific version of
-`aws/aws-sdk-php` and as that is own package it make sure that you have the correct version of
+`aws/aws-sdk-php` and as that is an own package it make sure that you have the correct version of
 `aws/aws-sdk-php` installed.
 
 ## What does composer say about optional dependencies?
@@ -57,9 +57,11 @@ But if you search in the issues of composer you will find a [`RFC` issue for `op
 
 I want to quote here the answer from [Seldaek](https://github.com/composer/composer/issues/8184#issuecomment-501265594)
 
+> [Seldaek](https://github.com/Seldaek) commented on [Jun 12, 2019](https://github.com/composer/composer/issues/8184#issuecomment-501265594)  
+>   
 > Monolog is a very good example of doing it wrong really..  
 > ElasticSearchHandler should be published as a standalone package with a requirement on both monolog and elasticsearch/elasticsearch, so the version can be enforced. That is why I don't accept any new handlers anymore with external requirements.
->
+>   
 > Adding optional dependencies are not worth the trouble IMO in composer.
 
 That was very eye-opening for me why in general optional dependencies are wrong and that
@@ -107,7 +109,11 @@ the best matching library and even don't need to handle yourself. Thanks goes he
 to [nicolas-greaks](https://github.com/php-http/discovery/pull/208) providing this
 great feature.
 
-For optional packages you could also use the `provide` section to provide.
+For optional packages you could also use the `provide` section to create your own
+virtual packages and provide packages for it.
+
+If you want avoid accidentally created optional dependencies you should have a look at
+[maglnet/ComposerRequireChecker](https://github.com/maglnet/ComposerRequireChecker) plugin.
 
 ## How to handle optional dependencies with composer
 
@@ -116,7 +122,7 @@ could be different reasons for this that one package with optional packages prov
 a better developer experience as that the enduser of your library need to install 
 several packages.
 
-In my situation while working on the `schranz-search/schranz-search` packages. I did
+In my situation while working on the [`schranz-search/schranz-search`](https://github.com/schranz-search/schranz-search) packages. I did
 go the `flysystem` way and using the
 [Adapter Pattern](https://en.wikipedia.org/wiki/Adapter_pattern) to split the support
 of different search engines into different packages. So good so fine no optional
@@ -171,13 +177,13 @@ our `composer.json`:
 
 This way even `composer` is not supporting directly optional dependencies, we can
 over the `conflict` section of `composer.json` make sure that only compatible versions
-of our optional requirements are installed.
+of our optional requirements are installed. A good website to find the correct constraint for your `conflict` part is [https://semver.madewithlove.com/](https://semver.madewithlove.com/).
 
 Over `suggest` or with  require an `implementation` like in the above section [here](#the-composer-provide-feature),
-composer would also tell the enduser which adapters exist or are suggested by us to be used.
-
-A good website to find the correct constraint for your `conflict` part is [https://semver.madewithlove.com/](https://semver.madewithlove.com/).
+composer would also tell the enduser which adapters exist or are suggested by us to be used with our integration bundle.
 
 I hope I could help to understand how to avoid optional dependencies and how to handle them with composer.
 
-If you have any feedback or questions add it to the Twitter Thread here or write an issue on this Repository.
+If you have any feedback or questions add it to the Twitter Thread [here](https://twitter.com/alex_s_/status/1640429500763611153) or write an issue on [this](https://github.com/alexander-schranz/composer-optional-dependencies/issues/new) Repository.
+
+Interested in other articles from me. Go to the [`alexander-schranz-article` topic](https://github.com/topics/alexander-schranz-article).
