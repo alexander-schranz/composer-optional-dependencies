@@ -185,5 +185,6 @@ composer would also tell the enduser which adapters exist or are suggested by us
 I hope I could help to understand how to avoid optional dependencies and how to handle them with composer.
 
 If you have any feedback or questions add it to the Twitter Thread [here](https://twitter.com/alex_s_/status/1640429500763611153) or write an issue on [this](https://github.com/alexander-schranz/composer-optional-dependencies/issues/new) Repository.
+If you liked the article give it a star here or even retweet it :).
 
-Interested in other articles from me. Go to the [`alexander-schranz-article` topic](https://github.com/topics/alexander-schranz-article).
+Interested in other articles? Go to the [`alexander-schranz-article` topic](https://github.com/topics/alexander-schranz-article).
