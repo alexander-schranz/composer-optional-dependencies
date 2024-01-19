@@ -149,28 +149,28 @@ our `composer.json`:
 ```json
 {
     "require-dev": {
-        "schranz-search/seal-algolia-adapter": "^0.1",
-        "schranz-search/seal-elasticsearch-adapter": "^0.1",
-        "schranz-search/seal-meilisearch-adapter": "^0.1",
-        "schranz-search/seal-memory-adapter": "^0.1",
-        "schranz-search/seal-multi-adapter": "^0.1",
-        "schranz-search/seal-opensearch-adapter": "^0.1",
-        "schranz-search/seal-read-write-adapter": "^0.1",
-        "schranz-search/seal-redisearch-adapter": "^0.1",
-        "schranz-search/seal-solr-adapter": "^0.1",
-        "schranz-search/seal-typesense-adapter": "^0.1"
+        "schranz-search/seal-algolia-adapter": "^0.3",
+        "schranz-search/seal-elasticsearch-adapter": "^0.3",
+        "schranz-search/seal-meilisearch-adapter": "^0.3",
+        "schranz-search/seal-memory-adapter": "^03",
+        "schranz-search/seal-multi-adapter": "^0.3",
+        "schranz-search/seal-opensearch-adapter": "^0.3",
+        "schranz-search/seal-read-write-adapter": "^0.3",
+        "schranz-search/seal-redisearch-adapter": "^0.3",
+        "schranz-search/seal-solr-adapter": "^0.3",
+        "schranz-search/seal-typesense-adapter": "^0.3"
     },
     "conflict": {
-        "schranz-search/seal-algolia-adapter": "<0.1, >=0.2",
-        "schranz-search/seal-elasticsearch-adapter": "<0.1, >=0.2",
-        "schranz-search/seal-meilisearch-adapter": "<0.1, >=0.2",
-        "schranz-search/seal-memory-adapter": "<0.1, >=0.2",
-        "schranz-search/seal-multi-adapter": "<0.1, >=0.2",
-        "schranz-search/seal-opensearch-adapter": "<0.1, >=0.2",
-        "schranz-search/seal-read-write-adapter": "<0.1, >=0.2",
-        "schranz-search/seal-redisearch-adapter": "<0.1, >=0.2",
-        "schranz-search/seal-solr-adapter": "<0.1, >=0.2",
-        "schranz-search/seal-typesense-adapter": "<0.1, >=0.2"
+        "schranz-search/seal-algolia-adapter": "<0.3 || >=0.4",
+        "schranz-search/seal-elasticsearch-adapter": "<0.3 || >=0.4",
+        "schranz-search/seal-meilisearch-adapter": "<0.3 || >=0.4",
+        "schranz-search/seal-memory-adapter": "<0.3 || >=0.4",
+        "schranz-search/seal-multi-adapter": "<0.3 || >=0.4",
+        "schranz-search/seal-opensearch-adapter": "<0.3 || >=0.4",
+        "schranz-search/seal-read-write-adapter": "<0.3 || >=0.4",
+        "schranz-search/seal-redisearch-adapter": "<0.3 || >=0.4",
+        "schranz-search/seal-solr-adapter": "<0.3 || >=0.4",
+        "schranz-search/seal-typesense-adapter": "<0.3 || >=0.4"
     }
 }
 ```
