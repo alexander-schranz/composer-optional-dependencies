@@ -152,7 +152,7 @@ our `composer.json`:
         "schranz-search/seal-algolia-adapter": "^0.3",
         "schranz-search/seal-elasticsearch-adapter": "^0.3",
         "schranz-search/seal-meilisearch-adapter": "^0.3",
-        "schranz-search/seal-memory-adapter": "^03",
+        "schranz-search/seal-memory-adapter": "^0.3",
         "schranz-search/seal-multi-adapter": "^0.3",
         "schranz-search/seal-opensearch-adapter": "^0.3",
         "schranz-search/seal-read-write-adapter": "^0.3",
